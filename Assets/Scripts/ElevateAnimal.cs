@@ -7,7 +7,7 @@ public class ElevateAnimal : MonoBehaviour
     public float inf_limit = 1;
     public float sup_limit = 10;
     public float max_height = 5;
-    public float speed = 3;
+    public float speed = -3;
     private bool activate_method = false;
 
     // Start is called before the first frame update
