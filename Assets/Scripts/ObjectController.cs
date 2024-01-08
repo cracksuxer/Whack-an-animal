@@ -27,12 +27,12 @@ public class ObjectController : MonoBehaviour
     /// <summary>
     /// The material to use when this object is inactive (not being gazed at).
     /// </summary>
-    public Material InactiveMaterial;
+    // public Material InactiveMaterial;
 
     /// <summary>
     /// The material to use when this object is active (gazed at).
     /// </summary>
-    public Material GazedAtMaterial;
+    // public Material GazedAtMaterial;
 
     // The objects are about 1 meter in radius, so the min/max target distance are
     // set so that the objects are always within the room (which is about 5 meters
@@ -50,9 +50,9 @@ public class ObjectController : MonoBehaviour
     /// </summary>
     public void Start()
     {
-        _startingPosition = transform.parent.localPosition;
-        _myRenderer = GetComponent<Renderer>();
-        SetMaterial(false);
+        // _startingPosition = transform.parent.localPosition;
+        // _myRenderer = GetComponent<Renderer>();
+        // SetMaterial(false);
     }
 
     /// <summary>
@@ -78,7 +78,7 @@ public class ObjectController : MonoBehaviour
 
         randomSib.SetActive(true);
         gameObject.SetActive(false);
-        SetMaterial(false);
+        // SetMaterial(false);
     }
 
     /// <summary>
@@ -86,7 +86,8 @@ public class ObjectController : MonoBehaviour
     /// </summary>
     public void OnPointerEnter()
     {
-        SetMaterial(true);
+        // SetMaterial(true);
+        Debug.Log("Se acaba de mirar un animal");
     }
 
     /// <summary>
@@ -94,7 +95,8 @@ public class ObjectController : MonoBehaviour
     /// </summary>
     public void OnPointerExit()
     {
-        SetMaterial(false);
+        // SetMaterial(false);
+        Debug.Log("Se acaba de dejar de mirar un animal");
     }
 
     /// <summary>
@@ -103,21 +105,22 @@ public class ObjectController : MonoBehaviour
     /// </summary>
     public void OnPointerClick()
     {
-        TeleportRandomly();
+        // TeleportRandomly();
+        Debug.Log("Se acaba de matar un animal");
     }
 
     /// <summary>
     /// Sets this instance's material according to gazedAt status.
     /// </summary>
-    ///
+    /// 
     /// <param name="gazedAt">
     /// Value `true` if this object is being gazed at, `false` otherwise.
     /// </param>
-    private void SetMaterial(bool gazedAt)
-    {
-        if (InactiveMaterial != null && GazedAtMaterial != null)
-        {
-            _myRenderer.material = gazedAt ? GazedAtMaterial : InactiveMaterial;
-        }
-    }
+    // private void SetMaterial(bool gazedAt)
+    // {
+    //     if (InactiveMaterial != null && GazedAtMaterial != null)
+    //     {
+    //         _myRenderer.material = gazedAt ? GazedAtMaterial : InactiveMaterial;
+    //     }
+    // }
 }
