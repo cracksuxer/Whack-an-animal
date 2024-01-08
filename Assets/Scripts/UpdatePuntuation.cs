@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class UpdatePuntuation : MonoBehaviour
 {
     public HitAnimal hit_animal;
-    public Text text_component;
+    public TextMeshProUGUI text_component;
     private int score = 0;
 
     public void Start()
@@ -22,7 +20,8 @@ public class UpdatePuntuation : MonoBehaviour
 
     void UpdateText() {
         if (text_component != null) {
-            text_component.text = "Puntuation: " + score.ToString();
+            
+            text_component.text = "Score: " + score.ToString();
         }
     }
 }
