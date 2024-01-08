@@ -700,7 +700,7 @@ GameObject:
   - component: {fileID: 4105349500978914225}
   - component: {fileID: 8033698545883803558}
   - component: {fileID: -5563426438519401569}
-  - component: {fileID: 8575304828832667366}
+  - component: {fileID: 771378885295834902}
   m_Layer: 0
   m_Name: Squid
   m_TagString: Untagged
@@ -807,8 +807,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &8575304828832667366
-BoxCollider:
+--- !u!136 &771378885295834902
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -825,9 +825,11 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 2
+  m_Radius: 0.2982062
+  m_Height: 1.411332
+  m_Direction: 1
+  m_Center: {x: 0.0048986673, y: 0.74934584, z: 0.032859743}
 --- !u!1 &7535825155527325181
 GameObject:
   m_ObjectHideFlags: 0
