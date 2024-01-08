@@ -21,7 +21,8 @@ public class ListenerPowerUp : MonoBehaviour {
     float powerUpZ = spawnBase.transform.position.z + spawnCoordinates.y;
     GameObject powerUpClone = InstantiateNewPowerUp();
     powerUpClone.transform.position = new Vector3(powerUpX, powerUpY, powerUpZ);
-    powerUpClone.transform.LookAt(spawnBase.transform.position);
+    OrientPowerUp(powerUpClone);
+    Destroy(powerUpClone, (spawnHeight - 1.0f) / powerUpSpeedFall);
   }
 
   Vector3 GetRandomPointInCircle(float radius) {
@@ -34,7 +35,14 @@ public class ListenerPowerUp : MonoBehaviour {
 
   GameObject InstantiateNewPowerUp() {
     GameObject powerUpClone = Instantiate(powerUp);
-    powerUpClone.AddComponent<FallScript>();
+    FallScript fall = powerUpClone.AddComponent<FallScript>();
+    fall.fallSpeed = powerUpSpeedFall;
     return powerUpClone;
+  }
+
+  void OrientPowerUp(GameObject powerUpClone) {
+    powerUpClone.transform.LookAt(spawnBase.transform.position);
+    Vector3 currentRotation = powerUpClone.transform.eulerAngles;
+    powerUpClone.transform.eulerAngles = new Vector3(90, currentRotation.y, currentRotation.z);
   }
 }
