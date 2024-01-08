@@ -7,16 +7,22 @@ public class UpdatePuntuation : MonoBehaviour
 {
     public HitAnimal hit_animal;
     public Text text_component;
+    private int score = 0;
 
     public void Start()
     {
         hit_animal.AddScore += AddScore;
     }
 
-    private void AddScore()
+    private void AddScore(int instanceID)
     {
-        // Puedes realizar acciones adicionales al recibir la colisión
-        int new_points = 10;  // Reemplaza esto con la lógica para obtener los puntos
-        text_component.text = "Puntuation: " + new_points;
+        score += 10;
+        UpdateText();
+    }
+
+    void UpdateText() {
+        if (text_component != null) {
+            text_component.text = "Puntuation: " + score.ToString();
+        }
     }
 }
