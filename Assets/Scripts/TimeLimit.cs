@@ -1,6 +1,5 @@
 using System;
 using TMPro;
-using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public class TimeLimit : MonoBehaviour
@@ -61,8 +60,6 @@ public class TimeLimit : MonoBehaviour
         TimeSpan time = TimeSpan.FromSeconds(timeToDisplay);
         timerDisplay.text = "Time left\n  " + time.ToString(@"mm\:ss");
     }
-
-
 
     public void AddTime(float extraTime)
     {
