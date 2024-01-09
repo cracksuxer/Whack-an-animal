@@ -15827,6 +15827,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d9016a93e2afb14993f9ab42254fc2b, type: 3}
+--- !u!1 &541796943 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5192355044679815921, guid: c37a705d3dc4a2f47bcea96c918a0358, type: 3}
+  m_PrefabInstance: {fileID: 919023821}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &541796944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541796943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c589f72c5261624e859f4afc7167e04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  object_list:
+  - {fileID: 7511180232019162148, guid: 818c5a1ba0d9810439f11299463f2294, type: 3}
+  spawn_distance: 1
+  spawn_on_start: 1
+  elevate_script_direcction: ElevateAnimal
 --- !u!4 &542139815 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 112935301516251139, guid: b924dce73e13fbd46b06d493f10d4ad7, type: 3}
@@ -28349,7 +28371,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5192355044679815921, guid: c37a705d3dc4a2f47bcea96c918a0358, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 541796944}
   m_SourcePrefab: {fileID: 100100000, guid: c37a705d3dc4a2f47bcea96c918a0358, type: 3}
 --- !u!1001 &920359449
 PrefabInstance:
@@ -51833,7 +51858,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7502093484983525750, guid: c37a705d3dc4a2f47bcea96c918a0358, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 32.44
+      value: 32.54
       objectReference: {fileID: 0}
     - target: {fileID: 7502093484983525750, guid: c37a705d3dc4a2f47bcea96c918a0358, type: 3}
       propertyPath: m_LocalPosition.z
