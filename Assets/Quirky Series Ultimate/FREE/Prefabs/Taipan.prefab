@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6585324533512180165}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7785993795240888550}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: neck.02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2866599969474528431}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: neck.01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4462348340439564167}
   - component: {fileID: 2311683543228773735}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mesh_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8531555221629931683}
   - component: {fileID: 8319246735976726104}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mesh_LOD3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -291,7 +291,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8147046413826956854}
   - component: {fileID: 5442504493887559991}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mesh_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -384,7 +384,7 @@ GameObject:
   m_Component:
   - component: {fileID: 480745877412113367}
   - component: {fileID: 4526051182192201800}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mesh_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -480,7 +480,9 @@ GameObject:
   - component: {fileID: 3701583169001772672}
   - component: {fileID: -5058701266121954204}
   - component: {fileID: -7105339355568013277}
-  m_Layer: 0
+  - component: {fileID: -2923302760482208848}
+  - component: {fileID: -1076514003484489350}
+  m_Layer: 3
   m_Name: Taipan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -607,6 +609,32 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.316836, y: 0.84320796, z: 1.2463868}
   m_Center: {x: -0.005599715, y: 0.3695807, z: 0.02239883}
+--- !u!114 &-2923302760482208848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4807929556901506227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb0fad8e3b2754aaeb18724ea18d2a3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hammer: {fileID: 0}
+--- !u!114 &-1076514003484489350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4807929556901506227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7598e3ad648d4a14aaccb095b04cbf94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  death_particles: {fileID: 198357973136645638, guid: 67a684e320da6e7439421a07e3fa265c, type: 3}
 --- !u!1 &5062559287153234616
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,7 +644,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3327578256293065397}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: tail.01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -648,7 +676,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4399802892305169450}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -680,7 +708,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4041582921267333190}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -713,7 +741,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8161658182462644725}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: tail.03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -744,7 +772,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8306261897508883890}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -776,7 +804,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6821626466792652791}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: tail.02
   m_TagString: Untagged
   m_Icon: {fileID: 0}

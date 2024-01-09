@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8167221003114474612}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6351479144056247483}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: tentacle.R.01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4182287083402603236}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: tentacle.R.08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7344791754290115617}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: tentacle.R.02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6634065595645018770}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: tentacle.L.07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4547848921686973932}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1553301207029058297}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: tentacle.L.01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +231,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7478123394504495786}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: tentacle.L.04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +264,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8438751830708338126}
   - component: {fileID: 2716154403044705339}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mesh_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,7 +366,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 758691537370106633}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: tentacle.L.08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -397,7 +397,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8233499599639483798}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: tentacle.L.02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -429,7 +429,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8380749277840168984}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -468,7 +468,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4844993999544914993}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: tentacle.R.03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -500,7 +500,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8263877232947654618}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: tentacle.L.03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -532,7 +532,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6781720425013791162}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: tentacle.L.05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -563,7 +563,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6585462188656811161}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: tentacle.L.06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -595,7 +595,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2524825879720301906}
   - component: {fileID: 3230127564229832065}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mesh_LOD3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -701,7 +701,9 @@ GameObject:
   - component: {fileID: 8033698545883803558}
   - component: {fileID: -5563426438519401569}
   - component: {fileID: 771378885295834902}
-  m_Layer: 0
+  - component: {fileID: 2235995252705925773}
+  - component: {fileID: 2639300967035381555}
+  m_Layer: 3
   m_Name: Squid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -830,6 +832,32 @@ CapsuleCollider:
   m_Height: 1.411332
   m_Direction: 1
   m_Center: {x: 0.0048986673, y: 0.74934584, z: 0.032859743}
+--- !u!114 &2235995252705925773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7511180232019162148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb0fad8e3b2754aaeb18724ea18d2a3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hammer: {fileID: 0}
+--- !u!114 &2639300967035381555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7511180232019162148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7598e3ad648d4a14aaccb095b04cbf94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  death_particles: {fileID: 198357973136645638, guid: 67a684e320da6e7439421a07e3fa265c, type: 3}
 --- !u!1 &7535825155527325181
 GameObject:
   m_ObjectHideFlags: 0
@@ -839,7 +867,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8161914564338180953}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: tentacle.R.04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -871,7 +899,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9093190200737145918}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: tentacle.R.07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -902,7 +930,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2358561344379644202}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: tentacle.R.06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -934,7 +962,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8561392442627464171}
   - component: {fileID: 5425916760323031536}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mesh_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1037,7 +1065,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5937700352953570152}
   - component: {fileID: 1450177669000054212}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mesh_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1139,7 +1167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7013067670036826916}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: tentacle.R.05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
