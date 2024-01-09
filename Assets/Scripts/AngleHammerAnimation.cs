@@ -9,7 +9,7 @@ public class AngleHammerAnimation : MonoBehaviour
     public float forward_acceleration = 1000.0f;
     public float offsetX = 0.5f;
     public float offsetY = 1.0f;
-    public float targetAngle = 90.0f;
+    public float targetAngle = 180.0f;
     public float offset_angle = 15.0f;
     private bool rotating = false;
     float current_fordward_speed = 0f;
