@@ -587,6 +587,7 @@ GameObject:
   - component: {fileID: 8317233869622344689}
   - component: {fileID: 2637936978494361042}
   - component: {fileID: -6398039947732317119}
+  - component: {fileID: 2612635961402274657}
   m_Layer: 0
   m_Name: Colobus
   m_TagString: Untagged
@@ -714,6 +715,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5669719, y: 0.8913065, z: 1.2192316}
   m_Center: {x: 0.0032001287, y: 0.40293324, z: -0.0045291185}
+--- !u!114 &2612635961402274657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6182162820492919152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb0fad8e3b2754aaeb18724ea18d2a3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hammer: {fileID: 0}
 --- !u!1 &7853299950699460719
 GameObject:
   m_ObjectHideFlags: 0

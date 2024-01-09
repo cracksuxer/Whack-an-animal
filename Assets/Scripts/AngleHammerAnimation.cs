@@ -4,36 +4,49 @@ using UnityEngine;
 
 public class AngleHammerAnimation : MonoBehaviour
 {
-    public GameObject animal;
-    public float forward_speed;
-    public float forward_acceleration;
-    public float offsetY; 
-    public float offsetX; // si no se pone golpea con el palo no con el mazo, 12 en la x 30 en la y
-    public float targetAngle;
-    public float offset_angle;
-    private bool rotating = true;
+    public AnimalController animal;
+    public float forward_speed = 250.0f;
+    public float forward_acceleration = 1000.0f;
+    public float offsetX = 0.5f;
+    public float offsetY = 1.0f;
+    public float targetAngle = 90.0f;
+    public float offset_angle = 15.0f;
+    private bool rotating = false;
     float current_fordward_speed = 0f;
 
     void Start()
     {
+        animal.OnWhack += OnWhack;
         transform.position = new Vector3(animal.transform.position.x + offsetX, animal.transform.position.y + offsetY, animal.transform.position.z);
     }
 
-    void Update() {
+    public void OnCopyCreated()
+    {
+        animal.OnWhack += OnWhack;
+        transform.position = new Vector3(animal.transform.position.x + offsetX, animal.transform.position.y + offsetY, animal.transform.position.z);
+    }
+
+    void Update()
+    {
         if (rotating)
         {
             current_fordward_speed -= forward_acceleration * Time.deltaTime;
             MakeRotationFordward(-forward_speed - current_fordward_speed);
         }
-
-        // Nuevo: Verificar si se alcanzó el ángulo objetivo
+        
         if (transform.rotation.eulerAngles.z >= targetAngle && transform.rotation.eulerAngles.z <= targetAngle + offset_angle)
         {
-            rotating = false; // Detener la rotación
+            rotating = false;
+            Destroy(gameObject);
         }
     }
 
     void MakeRotationFordward(float speed) {
         transform.Rotate(Vector3.forward, speed * Time.deltaTime);
+    }
+
+    void OnWhack()
+    {
+        rotating = true;
     }
 }
