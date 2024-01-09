@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ReticlePointerTest : MonoBehaviour
+public class ReticlePointerManager : MonoBehaviour
 {
     [SerializeField] private GameObject pointer;
     [SerializeField] private float maxDistancePointer = 14.5f;
@@ -58,7 +58,8 @@ public class ReticlePointerTest : MonoBehaviour
             {
                 Debug.Log("New GameObject detected: " + hit.transform.gameObject.name);
                 // New GameObject.
-                _gazedAtObject?.SendMessage("OnPointerExit", null, SendMessageOptions.DontRequireReceiver);
+                if (_gazedAtObject != null)
+                    _gazedAtObject.SendMessage("OnPointerExit", null, SendMessageOptions.DontRequireReceiver);
                 _gazedAtObject = hit.transform.gameObject;
                 _gazedAtObject.SendMessage("OnPointerEnter", null, SendMessageOptions.DontRequireReceiver);
                 GazeManager.Instance.StartGazeSelection();
@@ -78,7 +79,8 @@ public class ReticlePointerTest : MonoBehaviour
         else
         {
             // No GameObject detected in front of the camera.
-            _gazedAtObject?.SendMessage("OnPointerExit", null, SendMessageOptions.DontRequireReceiver);
+            if (_gazedAtObject != null)
+                _gazedAtObject.SendMessage("OnPointerExit", null, SendMessageOptions.DontRequireReceiver);
             _gazedAtObject = null;
             GazeManager.Instance.CancelGazeSelection();
             PointerOutGaze();
