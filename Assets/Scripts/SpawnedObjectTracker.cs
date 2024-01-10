@@ -10,11 +10,11 @@ public class SpawnedObjectTracker : MonoBehaviour
     public void Initialize(ObjectSpawner spawner, GameObject cube)
     {
         this.spawner = spawner;
-        this.myCube = cube;
+        myCube = cube;
     }
 
     void OnDestroy()
     {
-        spawner.MarkCubeAsUnoccupied(myCube);
+        spawner.MarkLocationAsUnoccupied(myCube);
     }
 }

@@ -4,18 +4,20 @@ using System.Collections.Generic;
 
 public class ObjectSpawner : MonoBehaviour
 {
-    public List<GameObject> objectPrefabs; // List of different object prefabs
+    public List<GameObject> animalsPrefabs; // List of different object prefabs
     public float spawnInterval = 1f;
-    public List<GameObject> cubes;
-    private Dictionary<GameObject, bool> cubeOccupancy = new Dictionary<GameObject, bool>();
+    public List<GameObject> locations;
+    private readonly Dictionary<GameObject, bool> locationOccupancy = new();
     private GameObject hammer;
+    public GameObject player;
+    public float disappearanceDuration = 6.0f; // Duration after which the object disappears
 
     void Start()
     {
         // Initialize all cubes as unoccupied
-        foreach (var cube in cubes)
+        foreach (var cube in locations)
         {
-            cubeOccupancy[cube] = false;
+            locationOccupancy[cube] = false;
         }
 
         hammer = GameObject.FindWithTag("Hammer");
@@ -34,44 +36,73 @@ public class ObjectSpawner : MonoBehaviour
 
     void SpawnObject()
     {
-        GameObject randomCube = GetRandomUnoccupiedCube();
-        if(randomCube == null) return; // Exit if no unoccupied cube is found
+        GameObject randomLocation = GetRandomUnoccupiedLocation();
+        if(randomLocation == null) return; // Exit if no unoccupied cube is found
 
-        GameObject prefabToSpawn = objectPrefabs[Random.Range(0, objectPrefabs.Count)]; // Selects a random prefab
-        prefabToSpawn.GetComponent<AnimalController>().hammer = hammer;
-        BoxCollider boxCollider = randomCube.transform.Find("Cube").GetComponent<BoxCollider>();
-
-        Vector3 randomPosition = new Vector3(
-            Random.Range(-boxCollider.size.x / 2, boxCollider.size.x / 2),
-            Random.Range(-boxCollider.size.y / 2, boxCollider.size.y / 2),
-            Random.Range(-boxCollider.size.z / 2, boxCollider.size.z / 2)
-        ) + boxCollider.center;
-
-        GameObject spawnedObject = Instantiate(prefabToSpawn, randomCube.transform.TransformPoint(randomPosition), Quaternion.identity);
-        cubeOccupancy[randomCube] = true; // Mark the cube as occupied
-
-        // Attach a script to the spawned object to track when it is destroyed
-        SpawnedObjectTracker tracker = spawnedObject.AddComponent<SpawnedObjectTracker>();
-        tracker.Initialize(this, randomCube);
-    }
-
-    GameObject GetRandomUnoccupiedCube()
-    {
-        List<GameObject> unoccupiedCubes = new List<GameObject>();
-        foreach (var pair in cubeOccupancy)
+        // Get the Renderer component to access the bounds
+        if (!randomLocation.TryGetComponent<Renderer>(out var cubeRenderer))
         {
-            if (!pair.Value) unoccupiedCubes.Add(pair.Key);
+            Debug.LogError("No Renderer found on the cube GameObject!");
+            return;
         }
 
-        if (unoccupiedCubes.Count == 0) return null;
-        return unoccupiedCubes[Random.Range(0, unoccupiedCubes.Count)];
+        // Use the center of the bounds as the spawn position
+        Vector3 centerPosition = cubeRenderer.bounds.center;
+        GameObject animalToSpawn = animalsPrefabs[Random.Range(0, animalsPrefabs.Count)]; // Selects a random prefab
+        animalToSpawn.GetComponent<AnimalController>().hammer = hammer;
+
+        GameObject spawnedAnimal = Instantiate(animalToSpawn, centerPosition, animalToSpawn.transform.rotation); // Spawn the object
+        spawnedAnimal.transform.LookAt(player.transform); // Look at the player
+        locationOccupancy[randomLocation] = true; // Mark the location as occupied
+
+        // Attach a script to the spawned object to track when it is destroyed
+        SpawnedObjectTracker tracker = spawnedAnimal.AddComponent<SpawnedObjectTracker>();
+        tracker.Initialize(this, randomLocation);
+
+        StartCoroutine(AnimateSpawn(spawnedAnimal));
+        StartCoroutine(HandleDisappearance(spawnedAnimal));
     }
 
-    public void MarkCubeAsUnoccupied(GameObject cube)
+    IEnumerator AnimateSpawn(GameObject obj)
     {
-        if (cubeOccupancy.ContainsKey(cube))
+        float duration = 0.5f; // Duration of the animation in seconds
+        float height = 1.0f; // How high the object will move
+        Vector3 startPosition = obj.transform.position;
+        startPosition.y -= 1.0f; // Start the animation 2 units below the spawn position
+        Vector3 endPosition = startPosition + new Vector3(0, height, 0);
+
+        for (float t = 0; t < duration; t += Time.deltaTime)
         {
-            cubeOccupancy[cube] = false;
+            obj.transform.position = Vector3.Lerp(startPosition, endPosition, t / duration);
+            yield return null;
+        }
+
+        obj.transform.position = endPosition;
+    }
+
+    IEnumerator HandleDisappearance(GameObject obj)
+    {
+        yield return new WaitForSeconds(disappearanceDuration);
+        Destroy(obj);
+    }
+
+    GameObject GetRandomUnoccupiedLocation()
+    {
+        List<GameObject> unoccupiedLocation = new();
+        foreach (var pair in locationOccupancy)
+        {
+            if (!pair.Value) unoccupiedLocation.Add(pair.Key);
+        }
+
+        if (unoccupiedLocation.Count == 0) return null;
+        return unoccupiedLocation[Random.Range(0, unoccupiedLocation.Count)];
+    }
+
+    public void MarkLocationAsUnoccupied(GameObject location)
+    {
+        if (locationOccupancy.ContainsKey(location))
+        {
+            locationOccupancy[location] = false;
         }
     }
 }

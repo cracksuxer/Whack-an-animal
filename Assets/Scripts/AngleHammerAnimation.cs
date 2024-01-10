@@ -5,12 +5,12 @@ using UnityEngine;
 public class AngleHammerAnimation : MonoBehaviour
 {
     public AnimalController animal;
-    public float forward_speed = 250.0f;
-    public float forward_acceleration = 1000.0f;
+    public float forward_speed = 950.0f;
+    public float forward_acceleration = 3500.0f;
     public float offsetX = 0.5f;
     public float offsetY = 1.0f;
-    public float targetAngle = 180.0f;
-    public float offset_angle = 15.0f;
+    public float targetAngle = 135.0f;
+    public float offset_angle = 10.0f;
     private bool rotating = false;
     float current_fordward_speed = 0f;
 
