@@ -21,8 +21,19 @@ public class ObjectSpawner : MonoBehaviour
         }
 
         hammer = GameObject.FindWithTag("Hammer");
+        TurnSpawnerOn();
+        TimeLimit.Instance.TimerEnded += TurnSpawnerOff;
+    }
 
+    void TurnSpawnerOn()
+    {
         StartCoroutine(SpawnObjects());
+    }
+
+    void TurnSpawnerOff()
+    {
+        StopAllCoroutines();
+        
     }
 
     IEnumerator SpawnObjects()
@@ -37,7 +48,7 @@ public class ObjectSpawner : MonoBehaviour
     void SpawnObject()
     {
         GameObject randomLocation = GetRandomUnoccupiedLocation();
-        if(randomLocation == null) return; // Exit if no unoccupied cube is found
+        if (randomLocation == null) return; // Exit if no unoccupied cube is found
 
         // Get the Renderer component to access the bounds
         if (!randomLocation.TryGetComponent<Renderer>(out var cubeRenderer))
@@ -53,6 +64,7 @@ public class ObjectSpawner : MonoBehaviour
 
         GameObject spawnedAnimal = Instantiate(animalToSpawn, centerPosition, animalToSpawn.transform.rotation); // Spawn the object
         spawnedAnimal.transform.LookAt(player.transform); // Look at the player
+        UpdatePunctuation.Instance.subscribe(spawnedAnimal); // Add the animal to the list of animals
         locationOccupancy[randomLocation] = true; // Mark the location as occupied
 
         // Attach a script to the spawned object to track when it is destroyed

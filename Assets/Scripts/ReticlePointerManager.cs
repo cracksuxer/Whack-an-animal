@@ -56,7 +56,6 @@ public class ReticlePointerManager : MonoBehaviour
             // GameObject detected in front of the camera.
             if (_gazedAtObject != hit.transform.gameObject)
             {
-                Debug.Log("New GameObject detected: " + hit.transform.gameObject.name);
                 // New GameObject.
                 if (_gazedAtObject != null)
                     _gazedAtObject.SendMessage("OnPointerExit", null, SendMessageOptions.DontRequireReceiver);
@@ -95,7 +94,6 @@ public class ReticlePointerManager : MonoBehaviour
 
     private void PointerOnGaze(Vector3 hitPoint)
     {
-        // Debug.Log("Mirando un objeto que es interactivo");
         float scaleFactor = scaleSize * Vector3.Distance(transform.position, hitPoint);
         pointer.transform.localScale = Vector3.one * scaleFactor;
 

@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RecieveHit : MonoBehaviour
+public class ReceiveHit : MonoBehaviour
 {
-    // public HitAnimal hit_animal;
     public ParticleSystem death_particles;
     private readonly int myInstanceID;
     public List<AudioClip> deathSounds; // List of AudioClips
     private AudioSource audioSource; // AudioSource variable
+
+    public delegate void ScoreEvent();
+    public event ScoreEvent AddScore;
 
     void Start()
     {
@@ -18,23 +20,30 @@ public class RecieveHit : MonoBehaviour
             Debug.LogError("No AudioSource component found on the GameObject.");
             return;
         }
-        // myInstanceID = gameObject.GetInstanceID();
-        // hit_animal.OnCollider += OnCollider;
     }
 
     void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.CompareTag("Hammer")) {
+            GetComponent<Rigidbody>().isKinematic = true;
+            AddScore?.Invoke();
+
+            if (audioSource != null && deathSounds.Count > 0) {
+                AudioClip randomClip = deathSounds[Random.Range(0, deathSounds.Count)];
+                audioSource.clip = randomClip;
+                audioSource.Play();
+            }
+
             ActivateParticles(death_particles);
             Animator animator_component = GetComponent<Animator>();
             string new_animation_name = "Death";
-            float time_to_dissapear = 3.0f;
+            float time_to_disappear = 1.0f;
             if (animator_component == null) {
                 Debug.LogError("El prefab no tiene un componente Animator.");
                 return;
             }
+
             animator_component.Play(new_animation_name, -1, 0f);
-            Invoke(nameof(DestroyObject), time_to_dissapear);
-            Destroy(gameObject);
+            Invoke(nameof(DestroyObject), time_to_disappear);
         }
     }
     
@@ -43,18 +52,11 @@ public class RecieveHit : MonoBehaviour
             ParticleSystem particles_instance = Instantiate(particles_prefab, transform.position, Quaternion.identity);
             particles_instance.Play();
             Destroy(particles_instance.gameObject, particles_instance.main.duration);
-
-            // Play a random death sound
-           if (audioSource != null && deathSounds.Count > 0) {
-                AudioClip randomClip = deathSounds[Random.Range(0, deathSounds.Count)];
-                audioSource.PlayOneShot(randomClip);
-                Debug.Log("Playing sound: " + randomClip.name);
-            }
         }
     }
 
     void DestroyObject() {
+        audioSource.Stop();
         Destroy(gameObject);
     }
 }
-

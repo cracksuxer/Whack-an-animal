@@ -1,27 +1,42 @@
 using TMPro;
 using UnityEngine;
 
-public class UpdatePuntuation : MonoBehaviour
+public class UpdatePunctuation : MonoBehaviour
 {
-    public HitAnimal hit_animal;
-    public TextMeshProUGUI text_component;
+    // public ReceiveHit animal;
+    public static UpdatePunctuation Instance { get; private set; }
+    public TextMeshProUGUI scoreText;
     private int score = 0;
 
-    public void Start()
+    private void Awake()
     {
-        hit_animal.AddScore += AddScore;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
-    private void AddScore(int instanceID)
+    public void subscribe(GameObject animal)
+    {
+        animal.GetComponent<ReceiveHit>().AddScore += AddScore;
+    }
+
+    private void AddScore()
     {
         score += 10;
         UpdateText();
     }
 
-    void UpdateText() {
-        if (text_component != null) {
-            
-            text_component.text = "Score: " + score.ToString();
+    private void UpdateText()
+    {
+        if (scoreText != null)
+        {
+            scoreText.text = "Score: " + score.ToString();
         }
     }
 }

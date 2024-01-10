@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AngleHammerAnimation : MonoBehaviour
+public class HammerSwing : MonoBehaviour
 {
     public AnimalController animal;
     public float forward_speed = 950.0f;
@@ -10,7 +10,7 @@ public class AngleHammerAnimation : MonoBehaviour
     public float offsetX = 0.5f;
     public float offsetY = 1.0f;
     public float targetAngle = 135.0f;
-    public float offset_angle = 10.0f;
+    public float offset_angle = 50.0f;
     private bool rotating = false;
     float current_fordward_speed = 0f;
 
