@@ -48,6 +48,11 @@ public class GazeManager : MonoBehaviour
     {
         this.timeForSelection = timeForSelection;
     }
+
+    public float GetTimeForSelection() 
+    {
+        return this.timeForSelection;
+    }
     public void StartGazeSelection()
     {
         gazeBarCanvas.SetActive(true);
