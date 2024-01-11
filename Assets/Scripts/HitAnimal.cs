@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class HitAnimal : MonoBehaviour
@@ -12,6 +11,7 @@ public class HitAnimal : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
+        Console.WriteLine("HitAnimal: OnCollisionEnter");
         OnCollider?.Invoke(other.gameObject.GetInstanceID());
         AddScore?.Invoke(other.gameObject.GetInstanceID());
     }
