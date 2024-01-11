@@ -450,8 +450,8 @@ GameObject:
   - component: {fileID: 6788538757290762322}
   - component: {fileID: 6788538757290762321}
   - component: {fileID: 6788538757290762327}
-  - component: {fileID: 6788538757290762320}
   - component: {fileID: 6844168319358532885}
+  - component: {fileID: 6788538757290762320}
   - component: {fileID: 7006535237797782685}
   - component: {fileID: 8504528180058917754}
   - component: {fileID: 2637508060643503717}
@@ -534,29 +534,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!136 &6788538757290762320
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6788538757290762323}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.26
-  m_Height: 0.66957575
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.33830807, z: 0}
 --- !u!54 &6844168319358532885
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -584,6 +561,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!136 &6788538757290762320
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6788538757290762323}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.26
+  m_Height: 0.66957575
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.33830807, z: 0}
 --- !u!114 &7006535237797782685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -615,11 +615,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e5ecc98ff40556543b77c8c2aa090822, type: 3}
   - {fileID: 8300000, guid: 72a9b2a2a3eaa584d9ba3a8e2166f0fd, type: 3}
   - {fileID: 8300000, guid: a37109c51cd477548ad1c882be3971d5, type: 3}
-  - {fileID: 8300000, guid: 2a295373a10441545bcaf619b61bea94, type: 3}
-  - {fileID: 8300000, guid: 8ba1ce15e8593064aa781b941381f053, type: 3}
   - {fileID: 8300000, guid: 1e3312d22540aa14597a1fb4739f2782, type: 3}
   - {fileID: 8300000, guid: d0f166575306db84091dc03fce0eff69, type: 3}
   - {fileID: 8300000, guid: 58a5d36d6b134014ea5623d9802082e2, type: 3}
+  - {fileID: 8300000, guid: 69ada3294fa8054498e2926be3bf1312, type: 3}
 --- !u!82 &2637508060643503717
 AudioSource:
   m_ObjectHideFlags: 0
