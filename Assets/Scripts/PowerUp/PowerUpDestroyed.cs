@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;using UnityEngine;
-
+using UnityEngine;
 
 public class PowerUpDestroyed : MonoBehaviour
 {
@@ -11,6 +9,7 @@ public class PowerUpDestroyed : MonoBehaviour
         float currentTimeForSelection = GazeManager.Instance.GetTimeForSelection();
         if (currentTimeForSelection > timeToReduce)
         {
+            transform.parent.GetComponent<AudioSource>().Play();
             GazeManager.Instance.SetUpGaze(currentTimeForSelection - timeToReduce);
             PowerUpManager.Instance.StartRestartTimeCoroutine(timeToReduce);
         }
