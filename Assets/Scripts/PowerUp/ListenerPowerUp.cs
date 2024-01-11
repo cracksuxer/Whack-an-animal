@@ -7,6 +7,7 @@ public class ListenerPowerUp : MonoBehaviour {
   public GameObject powerUp;
   public GameObject spawnBase;
   public float spawnRadius = 50.0f;
+  public float offsetSpawnRadius = 10.0f;
   public float spawnHeight = 50.0f;
   public float powerUpSpeedFall = 5.0f;
 
@@ -15,7 +16,7 @@ public class ListenerPowerUp : MonoBehaviour {
   }  
 
   private void OnSpawnPowerUp() {
-    Vector3 spawnCoordinates = GetRandomPointInCircle(spawnRadius);
+    Vector3 spawnCoordinates = GetRandomPointInCircle(spawnRadius, offsetSpawnRadius);
     float powerUpX = spawnBase.transform.position.x + spawnCoordinates.x;
     float powerUpY = spawnBase.transform.position.y + spawnHeight;
     float powerUpZ = spawnBase.transform.position.z + spawnCoordinates.y;
@@ -25,8 +26,8 @@ public class ListenerPowerUp : MonoBehaviour {
     Destroy(powerUpClone, (spawnHeight - 1.0f) / powerUpSpeedFall);
   }
 
-  Vector3 GetRandomPointInCircle(float radius) {
-    float distance = Random.Range(0, radius); // Radio aleatorio dentro del círculo
+  Vector3 GetRandomPointInCircle(float maxRadius, float minRadius) {
+    float distance = Random.Range(minRadius, maxRadius); // Radio aleatorio dentro del círculo
     float theta = Random.Range(0, 2 * Mathf.PI); // Ángulo aleatorio en radianes
     float x = distance * Mathf.Cos(theta);
     float y = distance * Mathf.Sin(theta);
