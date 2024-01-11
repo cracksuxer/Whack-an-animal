@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The script manage all the actions related with recieve a hit (activate de delegate On Collsion)
+/// </summary>
 public class ReceiveHit : MonoBehaviour
 {
     public ParticleSystem death_particles;
@@ -12,6 +15,9 @@ public class ReceiveHit : MonoBehaviour
     public delegate void ScoreEvent();
     public event ScoreEvent AddScore;
 
+    /// <summary>
+    /// This function is called at the begging to ensure that exists and AudioSource component
+    /// </summary>
     void Start()
     {
         // Initialize AudioSource
@@ -22,6 +28,9 @@ public class ReceiveHit : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This function is called when the delegate of the hammer is activated
+    /// </summary>
     void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.CompareTag("Hammer")) {
             GetComponent<Rigidbody>().isKinematic = true;
@@ -47,6 +56,9 @@ public class ReceiveHit : MonoBehaviour
         }
     }
     
+    /// <summary>
+    /// The function allow the animal to use a system of particle before is destroyed
+    /// </summary>
     void ActivateParticles(ParticleSystem particles_prefab) {
         if (particles_prefab != null) {
             ParticleSystem particles_instance = Instantiate(particles_prefab, transform.position, Quaternion.identity);
@@ -55,6 +67,9 @@ public class ReceiveHit : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Stop the sounds of the object as also destroy it
+    /// </summary>
     void DestroyObject() {
         audioSource.Stop();
         Destroy(gameObject);

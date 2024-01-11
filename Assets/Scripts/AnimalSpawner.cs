@@ -2,6 +2,9 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
+/// <summary>
+/// The script is used for managing all the topics related with spawn new animals
+/// </summary>
 public class ObjectSpawner : MonoBehaviour
 {
     public List<GameObject> animalsPrefabs; // List of different object prefabs
@@ -12,6 +15,9 @@ public class ObjectSpawner : MonoBehaviour
     public GameObject player;
     public float disappearanceDuration = 6.0f; // Duration after which the object disappears
 
+    /// <summary>
+    /// The function is called at the begging and is used
+    /// </summary>
     void Start()
     {
         // Initialize all cubes as unoccupied
@@ -25,17 +31,26 @@ public class ObjectSpawner : MonoBehaviour
         TimeLimit.Instance.TimerEnded += TurnSpawnerOff;
     }
 
+    /// <summary>
+    /// The function starts the spawner
+    /// </summary>
     void TurnSpawnerOn()
     {
         StartCoroutine(SpawnObjects());
     }
 
+    /// <summary>
+    /// The function stop the spawner
+    /// </summary>
     void TurnSpawnerOff()
     {
         StopAllCoroutines();
         
     }
 
+    /// <summary>
+    /// The function is used for spawn new objects along the game
+    /// </summary>
     IEnumerator SpawnObjects()
     {
         while (true) // Infinite loop to keep spawning objects
@@ -45,6 +60,9 @@ public class ObjectSpawner : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// The function provides the possibility of spawn a new object
+    /// </summary>
     void SpawnObject()
     {
         GameObject randomLocation = GetRandomUnoccupiedLocation();
@@ -75,6 +93,9 @@ public class ObjectSpawner : MonoBehaviour
         StartCoroutine(HandleDisappearance(spawnedAnimal));
     }
 
+    /// <summary>
+    /// The function make possible to animate the animal when it is spawned
+    /// </summary>
     IEnumerator AnimateSpawn(GameObject obj)
     {
         float duration = 0.5f; // Duration of the animation in seconds
@@ -92,12 +113,18 @@ public class ObjectSpawner : MonoBehaviour
         obj.transform.position = endPosition;
     }
 
+    /// <summary>
+    /// Is on charge of handle the destrucction of an object
+    /// </summary>
     IEnumerator HandleDisappearance(GameObject obj)
     {
         yield return new WaitForSeconds(disappearanceDuration);
         Destroy(obj);
     }
 
+    /// <summary>
+    /// This function is used for get a random spot that is unoccupied
+    /// </summary>
     GameObject GetRandomUnoccupiedLocation()
     {
         List<GameObject> unoccupiedLocation = new();
@@ -110,6 +137,9 @@ public class ObjectSpawner : MonoBehaviour
         return unoccupiedLocation[Random.Range(0, unoccupiedLocation.Count)];
     }
 
+    /// <summary>
+    /// Update the state of a locations as occupied
+    /// </summary>
     public void MarkLocationAsUnoccupied(GameObject location)
     {
         if (locationOccupancy.ContainsKey(location))

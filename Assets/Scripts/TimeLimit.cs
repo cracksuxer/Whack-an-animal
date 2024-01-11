@@ -2,6 +2,9 @@ using System;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// This script manage the time of the game
+/// </summary>
 public class TimeLimit : MonoBehaviour
 {
     // Singleton
@@ -12,6 +15,9 @@ public class TimeLimit : MonoBehaviour
     public event Action TimerEnded;
     public TextMeshProUGUI timerDisplay;
 
+    /// <summary>
+    /// The function is called at the begging of the script and make possible the instance of a new object
+    /// </summary>
     private void Awake()
     {
         if (Instance == null)
@@ -25,6 +31,9 @@ public class TimeLimit : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This functions it will be called in every frame during the game and it is on charge of managing all the topics related with the time during the game
+    /// </summary>
     private void Update()
     {
         if (timerIsRunning)
@@ -45,6 +54,9 @@ public class TimeLimit : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// The function start the timer during the game
+    /// </summary>
     public void StartTimer()
     {
         if (!timerIsRunning)
@@ -55,12 +67,18 @@ public class TimeLimit : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Update the time on the UI
+    /// </summary>
     private void UpdateTimerDisplay(float timeToDisplay)
     {
         TimeSpan time = TimeSpan.FromSeconds(timeToDisplay);
         timerDisplay.text = "Time left\n  " + time.ToString(@"mm\:ss");
     }
 
+    /// <summary>
+    /// This function provides the possiblity of add an amount of time to the game
+    /// </summary>
     public void AddTime(float extraTime)
     {
         timeRemaining += extraTime;
@@ -70,6 +88,9 @@ public class TimeLimit : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// The function is called when the timer ends to finish the game
+    /// </summary>
     protected virtual void OnTimerEnded()
     {
         TimerEnded?.Invoke();
