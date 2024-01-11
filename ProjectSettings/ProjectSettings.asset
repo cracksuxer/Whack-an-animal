@@ -844,11 +844,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 62be6543-ec86-439b-9afb-f60c334630be
+  cloudProjectId: e86893f0-f1af-45ee-9075-2bf3b9c5345a
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Whack-an-animal
-  organizationId: danimndz
+  projectName: AR
+  organizationId: alu0101237053
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

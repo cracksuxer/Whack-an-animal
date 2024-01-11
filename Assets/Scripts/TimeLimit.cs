@@ -8,9 +8,10 @@ public class TimeLimit : MonoBehaviour
     public static TimeLimit Instance { get; private set; }
     public float timeRemaining = 30f;
     public bool timerIsRunning = false;
-
+    public TextMeshProUGUI finalScoreDisplay;
     public event Action TimerEnded;
     public TextMeshProUGUI timerDisplay;
+    public GameObject endGameCanvas;
 
     private void Awake()
     {
@@ -40,6 +41,11 @@ public class TimeLimit : MonoBehaviour
                 UpdateTimerDisplay(timeRemaining);
                 timerIsRunning = false;
 
+                finalScoreDisplay.text = UpdatePunctuation.Instance.scoreText.text;
+
+                // Activate the end game canvas
+                endGameCanvas.SetActive(true);
+
                 OnTimerEnded();
             }
         }
@@ -63,6 +69,7 @@ public class TimeLimit : MonoBehaviour
 
     public void AddTime(float extraTime)
     {
+        Console.WriteLine("Adding time");
         timeRemaining += extraTime;
         if (!timerIsRunning)
         {
