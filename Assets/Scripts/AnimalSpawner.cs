@@ -11,6 +11,7 @@ public class ObjectSpawner : MonoBehaviour
     private GameObject hammer;
     public GameObject player;
     public float disappearanceDuration = 6.0f; // Duration after which the object disappears
+    public List<AudioClip> spawnSounds;
 
     void Start()
     {
@@ -64,6 +65,15 @@ public class ObjectSpawner : MonoBehaviour
 
         GameObject spawnedAnimal = Instantiate(animalToSpawn, centerPosition, animalToSpawn.transform.rotation); // Spawn the object
         spawnedAnimal.transform.LookAt(player.transform); // Look at the player
+
+        AudioSource audioSource = spawnedAnimal.GetComponent<AudioSource>();
+        // Play a sound when animal is spawned
+        if (audioSource != null && spawnSounds.Count > 0) {
+            AudioClip randomClip = spawnSounds[Random.Range(0, spawnSounds.Count)];
+            audioSource.clip = randomClip;
+            audioSource.Play();
+        }
+        
         UpdatePunctuation.Instance.subscribe(spawnedAnimal); // Add the animal to the list of animals
         locationOccupancy[randomLocation] = true; // Mark the location as occupied
 

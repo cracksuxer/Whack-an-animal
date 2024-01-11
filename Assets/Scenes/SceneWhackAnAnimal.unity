@@ -60900,6 +60900,11 @@ MonoBehaviour:
   - {fileID: 1154436622}
   player: {fileID: 1113612709}
   disappearanceDuration: 5
+  spawnSounds:
+  - {fileID: 8300000, guid: 016121d863ac88c40afb71215f105ba6, type: 3}
+  - {fileID: 8300000, guid: 960353e843f5cb140837693caf584ca8, type: 3}
+  - {fileID: 8300000, guid: d41bc24913312144489dfd56ff5932d2, type: 3}
+  - {fileID: 8300000, guid: 56ae04dfc54e4f94ba660bacee5c4451, type: 3}
 --- !u!114 &2020764867
 MonoBehaviour:
   m_ObjectHideFlags: 0
