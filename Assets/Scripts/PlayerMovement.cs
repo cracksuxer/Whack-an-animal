@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This script allows us to move during the scene on the unity editor
+/// </summary>
 public class PlayerMovement : MonoBehaviour
 {
     public float horizontalRotationSpeed = 5f;
@@ -17,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+    // Update is called once per frame and allows us to move during the scene
     void Update()
     {
         float horizontalInput = Input.GetAxis("Mouse X") * horizontalRotationSpeed;
