@@ -8,6 +8,7 @@ public class ObjectSpawner : MonoBehaviour
     public float spawnInterval = 1f;
     public List<GameObject> locations;
     private readonly Dictionary<GameObject, bool> locationOccupancy = new();
+    private List<GameObject> spawnedAnimals = new List<GameObject>(); // List to track spawned animals
     private GameObject hammer;
     public GameObject player;
     public float disappearanceDuration = 6.0f; // Duration after which the object disappears
@@ -34,7 +35,15 @@ public class ObjectSpawner : MonoBehaviour
     void TurnSpawnerOff()
     {
         StopAllCoroutines();
-        
+        // Destroy all spawned animals
+        foreach (var animal in spawnedAnimals)
+        {
+            if (animal != null)
+            {
+                Destroy(animal);
+            }
+        }
+        spawnedAnimals.Clear(); // Clear the list after destroying the animals
     }
 
     IEnumerator SpawnObjects()
@@ -64,6 +73,7 @@ public class ObjectSpawner : MonoBehaviour
         animalToSpawn.GetComponent<AnimalController>().hammer = hammer;
 
         GameObject spawnedAnimal = Instantiate(animalToSpawn, centerPosition, animalToSpawn.transform.rotation); // Spawn the object
+        spawnedAnimals.Add(spawnedAnimal); // Add the spawned animal to the list
         spawnedAnimal.transform.LookAt(player.transform); // Look at the player
 
         AudioSource audioSource = spawnedAnimal.GetComponent<AudioSource>();
@@ -125,6 +135,7 @@ public class ObjectSpawner : MonoBehaviour
         if (locationOccupancy.ContainsKey(location))
         {
             locationOccupancy[location] = false;
+            spawnedAnimals.Remove(location); // Remove the animal from the list when the location is marked unoccupied
         }
     }
 }

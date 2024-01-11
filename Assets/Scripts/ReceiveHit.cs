@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +7,6 @@ public class ReceiveHit : MonoBehaviour
     private readonly int myInstanceID;
     public List<AudioClip> deathSounds; // List of AudioClips
     private AudioSource audioSource; // AudioSource variable
-
     public delegate void ScoreEvent();
     public event ScoreEvent AddScore;
 
@@ -24,6 +22,12 @@ public class ReceiveHit : MonoBehaviour
 
     void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.CompareTag("Hammer")) {
+            if (gameObject.CompareTag("Rat")) {
+                TimeLimit.Instance.AddTime(2.0f);
+            } else {
+                TimeLimit.Instance.AddTime(1.0f);
+            }
+
             GetComponent<Rigidbody>().isKinematic = true;
             AddScore?.Invoke();
 

@@ -63,6 +63,7 @@ public class TimeLimit : MonoBehaviour
 
     public void AddTime(float extraTime)
     {
+        Console.WriteLine("Adding time");
         timeRemaining += extraTime;
         if (!timerIsRunning)
         {
