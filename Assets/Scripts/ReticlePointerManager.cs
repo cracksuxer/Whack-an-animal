@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// This script manage all the topics related with the reticle pointer
+/// </summary>
 public class ReticlePointerManager : MonoBehaviour
 {
     [SerializeField] private GameObject pointer;
@@ -38,6 +41,9 @@ public class ReticlePointerManager : MonoBehaviour
         GazeManager.Instance.OnGazeSelection += GazeSelection;
     }
 
+    /// <summary>
+    /// The function manage the selection of the gaze
+    /// </summary>
     private void GazeSelection()
     {
         _gazedAtObject?.SendMessage("OnPointerClick", null, SendMessageOptions.DontRequireReceiver);
@@ -56,7 +62,6 @@ public class ReticlePointerManager : MonoBehaviour
             // GameObject detected in front of the camera.
             if (_gazedAtObject != hit.transform.gameObject)
             {
-                Debug.Log("New GameObject detected: " + hit.transform.gameObject.name);
                 // New GameObject.
                 if (_gazedAtObject != null)
                     _gazedAtObject.SendMessage("OnPointerExit", null, SendMessageOptions.DontRequireReceiver);
@@ -93,15 +98,20 @@ public class ReticlePointerManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// The function is used for detect the objetives that are interactive
+    /// </summary>
     private void PointerOnGaze(Vector3 hitPoint)
     {
-        // Debug.Log("Mirando un objeto que es interactivo");
         float scaleFactor = scaleSize * Vector3.Distance(transform.position, hitPoint);
         pointer.transform.localScale = Vector3.one * scaleFactor;
 
         pointer.transform.parent.position = CalculatePointerPosition(transform.position, hitPoint, distPointerObject);
     }
 
+    /// <summary>
+    /// The function is used for detect the objetives that are not interactive
+    /// </summary>
     private void PointerOutGaze()
     {
         // Debug.Log("Mirando un objeto que no es interactivo");
@@ -111,6 +121,9 @@ public class ReticlePointerManager : MonoBehaviour
         GazeManager.Instance.CancelGazeSelection();
     }
 
+    /// <summary>
+    /// This function is on charge of calculate the position of the pointer
+    /// </summary>
     private Vector3 CalculatePointerPosition(Vector3 p0, Vector3 p1, float t)
     {
         float x = p0.x + t * (p1.x - p0.x);
