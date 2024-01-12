@@ -27,6 +27,8 @@ De cara a aspectos a destacar, consideramos que la aplicación es un juego entre
 
 ## Gif animado de ejecución
 
+![Gif animado de ejecucion](./gif-execution.gif)
+
 ## Acta de los acuerdos del grupo respecto al trabajo en equipo: reparto de tareas, tareas desarrolladas individualmente, tareas desarrolladas en grupo, etc.
 ### Organización:
 - Búsqueda de assets: Julio Ruzicka, José Lozano
